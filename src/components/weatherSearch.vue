@@ -79,7 +79,6 @@ export default {
 
   methods: {
     async search(event) {
-      console.log(event.target.value)
       const options = {
         method: 'GET',
         url: `https://wft-geo-db.p.rapidapi.com/v1/geo/places?limit=10&offset=0&types=CITY&namePrefix=${event.target.value}&sort=-population`,

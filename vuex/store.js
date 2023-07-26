@@ -57,7 +57,6 @@ let store = new Vuex.Store({
       if (this.state.city == '') {
         return axios.get(`https://ipapi.co/json/`)
           .then((response) => {
-            console.log(response)
             commit("SET_CITY_TO_STATE", response.data.city);
             commit("SET_LAT_TO_STATE", response.data.latitude);
             commit("SET_LONG_TO_STATE", response.data.longitude);
