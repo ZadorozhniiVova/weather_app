@@ -21,7 +21,7 @@ export default defineConfig({
   },
   chainWebpack: config => {
     config.performance
-      .maxEntrypointSize(6000000)
-      .maxAssetSize(6000000)
+      .maxEntrypointSize(600000000)
+      .maxAssetSize(600000000)
   },
 })
