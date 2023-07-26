@@ -1,7 +1,7 @@
 <script setup>
 import axios from 'axios'
-// import IconSearch from './icons/IconSearch.vue'
-import iconFavorite from './icons/iconFavorite.vue'
+import IconSearch from './icons/IconSearch.vue'
+// import iconFavorite from './icons/iconFavorite.vue'
 </script>
 
 <template>
@@ -15,7 +15,7 @@ import iconFavorite from './icons/iconFavorite.vue'
           v-model="searchCity"
           @keyup="search($event)"
         />
-        <!-- <IconSearch /> -->
+        <IconSearch />
       </div>
 
       <ul class="weather-search__list" :class="{ show: searchResult.length > 0 }">
@@ -31,7 +31,7 @@ import iconFavorite from './icons/iconFavorite.vue'
       </ul>
     </div>
     <span @click="addToFavorite" class="favorite">
-      <iconFavorite :favorite="this.isFavorite" />
+      <!-- <iconFavorite :favorite="this.isFavorite" /> -->
     </span>
   </div>
 </template>
