@@ -1,5 +1,6 @@
 <script setup>
 import weatherSearch from './weatherSearch.vue'
+import highcharts from 'highcharts-vue'
 </script>
 
 <template>
