@@ -1,7 +1,7 @@
 <script setup>
 import axios from 'axios'
 import IconSearch from './icons/IconSearch.vue'
-// import iconFavorite from './icons/iconFavorite.vue'
+import iconFavorite from './icons/iconFavorite.vue'
 </script>
 
 <template>
@@ -31,7 +31,7 @@ import IconSearch from './icons/IconSearch.vue'
       </ul>
     </div>
     <span @click="addToFavorite" class="favorite">
-      <iconFavorite  />
+      <iconFavorite :favorite="this.isFavorite" />
     </span>
   </div>
 </template>
