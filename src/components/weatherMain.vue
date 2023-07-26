@@ -88,17 +88,16 @@ export default {
         { days: 5, interval: 40 }
       ],
       isActive: false,
-
       wind: 'Wind speed',
       humidity: 'Humidity',
       pressure: 'Pressure',
-
       activeTab: 0,
       tabs: [
         {
           title: 'Temperature',
           content: {
             chart: {
+              type: 'spline',
               zoomType: 'x',
               backgroundColor: '#ffffffd5'
             },
@@ -167,6 +166,7 @@ export default {
           title: 'Wind',
           content: {
             chart: {
+              type: 'spline',
               backgroundColor: '#ffffffd5',
               zoomType: 'x'
             },
@@ -234,6 +234,7 @@ export default {
           title: 'Pressure',
           content: {
             chart: {
+              type: 'spline',
               backgroundColor: '#ffffffd5',
               zoomType: 'x'
             },
@@ -316,8 +317,8 @@ export default {
         this.tabs[i].content.xAxis.categories.length = 0
       }
       for (let i = 0; i < this.hoursFilter; i++) {
-        this.tabs[0].content.series[0].data.push(this.weather5dList[i].main.temp)
-        this.tabs[1].content.series[0].data.push(this.weather5dList[i].wind.speed)
+        this.tabs[0].content.series[0].data.push(Math.round(this.weather5dList[i].main.temp))
+        this.tabs[1].content.series[0].data.push(Math.round(this.weather5dList[i].wind.speed))
         this.tabs[2].content.series[0].data.push(this.weather5dList[i].main.pressure)
         this.tabs[0].content.xAxis.categories.push(this.weather5dList[i].dt_txt)
         this.tabs[1].content.xAxis.categories.push(this.weather5dList[i].dt_txt)
@@ -336,8 +337,8 @@ export default {
             if (response !== undefined) {
               this.weather5dList = response.data.list
               for (let i = 0; i < this.hoursFilter; i++) {
-                this.tabs[0].content.series[0].data.push(this.weather5dList[i].main.temp)
-                this.tabs[1].content.series[0].data.push(this.weather5dList[i].wind.speed)
+                this.tabs[0].content.series[0].data.push(Math.round(this.weather5dList[i].main.temp))
+                this.tabs[1].content.series[0].data.push(Math.round(this.weather5dList[i].wind.speed))
                 this.tabs[2].content.series[0].data.push(this.weather5dList[i].main.pressure)
                 this.tabs[0].content.xAxis.categories.push(this.weather5dList[i].dt_txt)
                 this.tabs[1].content.xAxis.categories.push(this.weather5dList[i].dt_txt)
@@ -360,8 +361,8 @@ export default {
           if (response !== undefined) {
               this.weather5dList = response.data.list
               for (let i = 0; i < this.hoursFilter; i++) {
-                this.tabs[0].content.series[0].data.push(this.weather5dList[i].main.temp)
-                this.tabs[1].content.series[0].data.push(this.weather5dList[i].wind.speed)
+                this.tabs[0].content.series[0].data.push(Math.round(this.weather5dList[i].main.temp))
+                this.tabs[1].content.series[0].data.push(Math.round(this.weather5dList[i].wind.speed))
                 this.tabs[2].content.series[0].data.push(this.weather5dList[i].main.pressure)
                 this.tabs[0].content.xAxis.categories.push(this.weather5dList[i].dt_txt)
                 this.tabs[1].content.xAxis.categories.push(this.weather5dList[i].dt_txt)
