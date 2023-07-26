@@ -126,6 +126,9 @@ export default {
           this.favorite = existing
         }
       }
+      else{
+        alert("Please delete city from favorite to add new")
+      }
     }
   }
 }
