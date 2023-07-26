@@ -19,4 +19,9 @@ export default defineConfig({
       "fast-deep-equal",
     ],
   },
+  chainWebpack: config => {
+    config.performance
+      .maxEntrypointSize(6000000)
+      .maxAssetSize(6000000)
+  },
 })
