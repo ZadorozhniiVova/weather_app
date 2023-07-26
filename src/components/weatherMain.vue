@@ -68,7 +68,7 @@ import weatherSearch from './weatherSearch.vue'
           :key="index"
           v-show="activeTab === index"
         >
-          <highcharts :options="tab.content"></highcharts>
+          <highcharts :options="tab.content"/>
         </div>
       </div>
     </div>
@@ -357,7 +357,7 @@ export default {
       .then(() => this.GET_CITY_WEATHER_NOW_FROM_API())
       .then(() =>
         this.GET_CITY_WEATHER_5D_FROM_API().then((response) => {
-          if (response.data !== undefined) {
+          if (response !== undefined) {
               this.weather5dList = response.data.list
               for (let i = 0; i < this.hoursFilter; i++) {
                 this.tabs[0].content.series[0].data.push(this.weather5dList[i].main.temp)
