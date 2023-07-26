@@ -30,9 +30,9 @@ import IconSearch from './icons/IconSearch.vue'
         </li>
       </ul>
     </div>
-    <span @click="addToFavorite" class="favorite">
-      <!-- <iconFavorite :favorite="this.isFavorite" /> -->
-    </span>
+    <!-- <span > -->
+      <iconFavorite :favorite="this.isFavorite" @click="addToFavorite" class="favorite" />
+    <!-- </span> -->
   </div>
 </template>
 
