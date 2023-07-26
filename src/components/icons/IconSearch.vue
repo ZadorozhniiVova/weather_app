@@ -1,6 +1,6 @@
 
 <template>
-  <img src="../../assets/search.gif" alt="" />
+  <img src="../../assets/search.gif" alt="search" />
 </template>
 
 <style scoped>
