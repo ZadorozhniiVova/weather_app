@@ -22,9 +22,6 @@
 
 <script>
 export default {
-  data() {
-    return {}
-  },
   props: ['favorite']
 }
 </script>
