@@ -55,11 +55,12 @@ let store = new Vuex.Store({
   actions: {
     GET_CITY_BY_IP({ commit }) {
       if (this.state.city == '') {
-        return axios.get(`http://ip-api.com/json/`)
+        return axios.get(`https://ipapi.co/json/`)
           .then((response) => {
+            console.log(response)
             commit("SET_CITY_TO_STATE", response.data.city);
-            commit("SET_LAT_TO_STATE", response.data.lat);
-            commit("SET_LONG_TO_STATE", response.data.lon);
+            commit("SET_LAT_TO_STATE", response.data.latitude);
+            commit("SET_LONG_TO_STATE", response.data.longitude);
             return response;
           }).catch((error) => {
             return error;
