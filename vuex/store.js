@@ -58,7 +58,7 @@ let store = new Vuex.Store({
       if (this.state.city == '') {
         return axios.get(`https://api.ipify.org?format=json`)
           .then((response) =>
-            axios.get(`https://api.ipapi.com/api/${response.data.ip}?access_key=${this.state.ipKey}`)
+            axios.get(`http://api.ipapi.com/api/${response.data.ip}?access_key=${this.state.ipKey}`)
           )
           .then((response) => {
             commit("SET_CITY_TO_STATE", response.data.city);
@@ -73,28 +73,28 @@ let store = new Vuex.Store({
 
     GET_CITY_WEATHER_NOW_FROM_API({ commit }) {
       if (this.state.city !== '') {
-        return axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&appid=${this.state.weatherKey}&lang=${this.state.lang}&units=${this.state.units}`)
-          .then((response) => {
-            commit("SET_CITY_WEATHER_NOW_TO_STATE", response.data);
-            commit("SET_LAT_TO_STATE", response.data.coords.lat);
-            commit("SET_LONG_TO_STATE", response.data.coords.lon);
-            return response;
-          }).catch((error) => {
-            return error;
-          });
+      return axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&appid=${this.state.weatherKey}&lang=${this.state.lang}&units=${this.state.units}`)
+        .then((response) => {
+          commit("SET_CITY_WEATHER_NOW_TO_STATE", response.data);
+          commit("SET_LAT_TO_STATE", response.data.coords.lat);
+          commit("SET_LONG_TO_STATE", response.data.coords.lon);
+          return response;
+        }).catch((error) => {
+          return error;
+        });
       }
     },
     GET_CITY_WEATHER_5D_FROM_API({ commit }) {
       if (this.state.city !== '') {
-        return axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${this.state.city}&appid=${this.state.weatherKey}&lang=${this.state.lang}&units=${this.state.units}`)
-          .then((response) => {
-            commit("SET_CITY_WEATHER_5D_TO_STATE", response.data);
-            commit("SET_LAT_TO_STATE", response.data.city.coord.lat);
-            commit("SET_LONG_TO_STATE", response.data.city.coord.lon);
-            return response;
-          }).catch((error) => {
-            return error;
-          });
+      return axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${this.state.city}&appid=${this.state.weatherKey}&lang=${this.state.lang}&units=${this.state.units}`)
+        .then((response) => {
+          commit("SET_CITY_WEATHER_5D_TO_STATE", response.data);
+          commit("SET_LAT_TO_STATE", response.data.city.coord.lat);
+          commit("SET_LONG_TO_STATE", response.data.city.coord.lon);
+          return response;
+        }).catch((error) => {
+          return error;
+        });
       }
     },
 

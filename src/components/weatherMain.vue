@@ -68,7 +68,7 @@ import weatherSearch from './weatherSearch.vue'
           :key="index"
           v-show="activeTab === index"
         >
-          <highcharts :options="tab.content"></highcharts>
+          <highcharts :options="tab.content"/>
         </div>
       </div>
     </div>
