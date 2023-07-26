@@ -1,6 +1,5 @@
 <script setup>
 import weatherSearch from './weatherSearch.vue'
-import highcharts from 'highcharts-vue'
 </script>
 
 <template>
@@ -69,7 +68,7 @@ import highcharts from 'highcharts-vue'
           :key="index"
           v-show="activeTab === index"
         >
-          <highcharts :options="tab.content"/>
+          <highcharts :options="tab.content"></highcharts>
         </div>
       </div>
     </div>
