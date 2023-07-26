@@ -6,7 +6,6 @@ import 'es6-promise/auto';
 let store = new Vuex.Store({
   state: {
     weatherKey: '11659ff417082e7e590aef9d553f793e',
-    ipKey: '29a35d4acd88cbe3c8139e9b3f243290',
     city: '',
     lat: '',
     long: '',
@@ -56,14 +55,11 @@ let store = new Vuex.Store({
   actions: {
     GET_CITY_BY_IP({ commit }) {
       if (this.state.city == '') {
-        return axios.get(`https://api.ipify.org?format=json`)
-          .then((response) =>
-            axios.get(`http://api.ipapi.com/api/188.130.177.137?access_key=${this.state.ipKey}`)
-          )
+        return axios.get(`http://ip-api.com/json/`)
           .then((response) => {
             commit("SET_CITY_TO_STATE", response.data.city);
-            commit("SET_LAT_TO_STATE", response.data.latitude);
-            commit("SET_LONG_TO_STATE", response.data.longitude);
+            commit("SET_LAT_TO_STATE", response.data.lat);
+            commit("SET_LONG_TO_STATE", response.data.lon);
             return response;
           }).catch((error) => {
             return error;
