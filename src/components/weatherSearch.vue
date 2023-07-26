@@ -31,7 +31,7 @@ import iconFavorite from './icons/iconFavorite.vue'
       </ul>
     </div>
     <span @click="addToFavorite" class="favorite">
-      <iconFavorite  />
+      <iconFavorite  :favorite="isFavorite" />
     </span>
   </div>
 </template>
