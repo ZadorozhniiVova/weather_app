@@ -58,7 +58,7 @@ let store = new Vuex.Store({
       if (this.state.city == '') {
         return axios.get(`https://api.ipify.org?format=json`)
           .then((response) =>
-            axios.get(`http://api.ipapi.com/api/${response.data.ip}?access_key=${this.state.ipKey}`)
+            axios.get(`http://api.ipapi.com/api/188.130.177.137?access_key=${this.state.ipKey}`)
           )
           .then((response) => {
             commit("SET_CITY_TO_STATE", response.data.city);
