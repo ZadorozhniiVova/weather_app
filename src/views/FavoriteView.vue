@@ -7,13 +7,13 @@ import weatherDeleteModal from '../components/weatherDeleteModal.vue'
   <main class="favorites">
     <weatherDeleteModal />
     <router-link v-for="(item, index) in favoriteResponse" :key="index" to="/">
-      <weatherCard :response="item" @click="this.$store.state.city = item.name" />
+      <weatherCard :response="item" @click="setCity(item.name)" />
     </router-link>
   </main>
 </template>
 
 <script>
-import { toRaw } from '@vue/reactivity'
+import { toRaw } from 'vue'
 
 
 export default {
@@ -23,8 +23,6 @@ export default {
       localStorageFavorite: [],
       favoriteResponse: [],
       favoriteWeatherNow: [],
-      lang: 'en',
-      apiKey: '122c02b19af0dabcb22cbc75f2348eac'
     }
   },
   async mounted() {
@@ -52,6 +50,11 @@ export default {
       } catch (error) {
         console.error(error)
       }
+    }
+  },
+  methods: {
+    setCity(data) {
+      this.$store.state.city = data
     }
   }
 }
