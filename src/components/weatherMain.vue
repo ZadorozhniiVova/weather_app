@@ -334,7 +334,7 @@ export default {
       (state) => {
         this.GET_CITY_WEATHER_NOW_FROM_API().then(() =>
           this.GET_CITY_WEATHER_5D_FROM_API().then((response) => {
-            
+            if (response !== undefined) {
               this.weather5dList = response.data.list
               for (let i = 0; i < this.hoursFilter; i++) {
                 this.tabs[0].content.series[0].data.push(Math.round(this.weather5dList[i].main.temp))
@@ -344,7 +344,7 @@ export default {
                 this.tabs[1].content.xAxis.categories.push(this.weather5dList[i].dt_txt)
                 this.tabs[2].content.xAxis.categories.push(this.weather5dList[i].dt_txt)
               }
-            
+            }
           })
         )
         return this.$store.getters.CITY
@@ -358,7 +358,7 @@ export default {
       .then(() => this.GET_CITY_WEATHER_NOW_FROM_API())
       .then(() =>
         this.GET_CITY_WEATHER_5D_FROM_API().then((response) => {
-          
+          if (response !== undefined) {
               this.weather5dList = response.data.list
               for (let i = 0; i < this.hoursFilter; i++) {
                 this.tabs[0].content.series[0].data.push(Math.round(this.weather5dList[i].main.temp))
@@ -368,7 +368,7 @@ export default {
                 this.tabs[1].content.xAxis.categories.push(this.weather5dList[i].dt_txt)
                 this.tabs[2].content.xAxis.categories.push(this.weather5dList[i].dt_txt)
               }
-            
+            }
         })
       )
   }
